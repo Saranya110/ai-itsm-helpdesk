@@ -16,7 +16,7 @@ services:
   - type: web
     name: ai-itsm-helpdesk
     runtime: static
-    buildCommand: npm install && npm run build
+    buildCommand: pnpm install --frozen-lockfile && pnpm build
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_HOST
