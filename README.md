@@ -14,6 +14,10 @@ Requirements: Node.js 18+ and Python 3.10+.
 
 The app is usable without external credentials. It stores demo activity in `backend/data/` and uses a mock ServiceNow workflow. Chroma with the open `all-MiniLM-L6-v2` embedding model is used when its dependencies and model are available; otherwise a lightweight local lexical retriever keeps the demo available. MongoDB Atlas can be enabled by setting `MONGODB_URI` and `MONGODB_DATABASE`.
 
+## Deploy publicly on Render
+
+The included `render.yaml` Blueprint creates a static React site and a FastAPI web service. In Render, create a new Blueprint from this GitHub repository and deploy both services. The frontend gets the API's public hostname from the Blueprint and points its requests to that service automatically. Both services use Render's free plans for a no-cost prototype deployment. The free API may spin down after 15 minutes without traffic and can take about a minute to wake; local JSON data is ephemeral on free services. Set MongoDB Atlas credentials in the Render API service environment to retain app data across restarts. Do not put database credentials in this repository.
+
 ## 5-minute demo path
 
 1. **VPN incident:** choose “My VPN is not connecting.” See the classification, P2 priority, Network Support assignment, VPN article attribution, and create an incident.

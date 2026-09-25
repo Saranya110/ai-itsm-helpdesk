@@ -3,7 +3,8 @@ import {createRoot} from 'react-dom/client';
 import {Activity, ArrowDownLeft, ArrowUpRight, Bot, BookOpen, Check, ChevronDown, CircleHelp, Clock3, Command, Cpu, FileText, Headphones, LayoutDashboard, LifeBuoy, LoaderCircle, MessageSquareText, Plus, Search, Send, ShieldCheck, Sparkles, Ticket, WandSparkles, Wifi, X} from 'lucide-react';
 import './style.css';
 
-const API=import.meta.env.VITE_API_URL||'http://localhost:8000/api';
+const apiHost=import.meta.env.VITE_API_HOST;
+const API=import.meta.env.VITE_API_URL||(apiHost?`https://${apiHost}/api`:'http://localhost:8000/api');
 const samples=['My VPN is not connecting. Authentication keeps failing.','My password has expired.','How do I troubleshoot Outlook synchronization?','I need Visual Studio Code installed on my laptop.','How do I configure a quantum flux capacitor?'];
 async function call(path, options={}){const r=await fetch(API+path,{headers:{'Content-Type':'application/json'},...options});const j=await r.json();if(!r.ok)throw Error(j.detail||'Something went wrong');return j}
 function App(){
