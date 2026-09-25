@@ -1,0 +1,6 @@
+# Optional semantic vector retrieval stack (large first download; lexical fallback works without it)
+-r requirements.txt
+chromadb==0.6.3
+sentence-transformers==3.4.1
+transformers==4.48.3
+torch
